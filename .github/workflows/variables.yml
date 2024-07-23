@@ -29,5 +29,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "The os variable value is $OS",
+          echo "The projet path from the repo is {{vars.APP_PATH}}"
         env:
           OS: ${{vars.OS_NAME}}
