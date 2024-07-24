@@ -24,6 +24,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: List of env variables
         run: env
+      - name : set the new env variable
+        run: echo "ARCH=x64" >> $GITHUB_ENV
+        
+      - name : Read the env from previous step
+        run: echo " The architecture is $ARCH"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
