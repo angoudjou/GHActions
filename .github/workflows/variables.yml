@@ -30,6 +30,16 @@ jobs:
       - name : Read the env from previous step
         run: echo " The architecture is $ARCH"
 
+#id of the step requiered here
+      - name : set the new output variable od a step
+        id : minstep
+        run: echo "MIN=3.2" >> $GITHUB_OUTPUT
+        
+      - name : Read the the output of the step minstep
+        run: echo " The architecture is $minvar"
+        env:
+         minvar: ${{steps.minstep.outputs.MIN}}
+
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
